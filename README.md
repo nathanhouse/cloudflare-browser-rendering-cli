@@ -186,6 +186,15 @@ bun run cloudflare-crawl.ts https://example.com --reject-resource image --reject
 | Free | 5 | 100 | 6 req/min |
 | Paid | Unlimited | 100,000 | 600 req/min |
 
+## More
+
+If you want more tools and content like this:
+
+- [LinkedIn](https://www.linkedin.com/in/nathanhouse/) — Nathan House
+- [StationX](https://www.stationx.net) — Cybersecurity training platform
+- [YouTube](https://www.youtube.com/@StationxNet) — StationX channel
+- [JobZoneRisk.com](https://jobzonerisk.com) — AI job displacement risk tracker
+
 ## License
 
 MIT
