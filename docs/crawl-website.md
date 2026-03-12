@@ -45,7 +45,7 @@ bun run cloudflare-crawl.ts https://example.com --output /tmp/site.md
 | `--modified-since <ts>` | — | Only pages modified after Unix timestamp |
 | `--include-external` | false | Follow links to external domains |
 | `--include-subdomains` | false | Follow links to subdomains |
-| `--reject-resource <type>` | — | Block resource type (repeatable) |
+| `--reject-resource <type>` | — | Block resource type (repeatable: image, media, font, stylesheet) |
 | `--user-agent <string>` | — | Custom User-Agent string |
 | `--auth <user:pass>` | — | HTTP Basic authentication |
 | `--header <Name: Value>` | — | Extra HTTP header (repeatable) |
@@ -70,7 +70,7 @@ bun run cloudflare-crawl.ts --status <jobId>
 # Cancel a running job
 bun run cloudflare-crawl.ts --cancel <jobId>
 
-# JSON output with AI extraction (--json-options required)
+# JSON output for structured data (--json-options required)
 bun run cloudflare-crawl.ts https://example.com --format json --json-options '{"prompt":"Extract title"}' --limit 5
 
 # Crawl sitemaps only
