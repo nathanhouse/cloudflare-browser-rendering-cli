@@ -1,4 +1,4 @@
-# Crawl Website with Cloudflare Browser Rendering
+# Crawl Website - Cloudflare Browser Rendering
 
 Crawl entire websites via Cloudflare's /crawl REST API. Returns content as Markdown, HTML, or JSON.
 
@@ -100,3 +100,28 @@ bun run cloudflare-crawl.ts https://shop.example.com --format json --json-option
 | Paid | Unlimited | 100,000 | 600 req/min |
 
 Jobs available for 14 days after completion. Max runtime: 7 days.
+
+## Expected Output
+
+Sync mode prints crawled content to stdout (or file with `--output`). Stderr shows progress:
+```
+Crawling https://example.com (limit: 10, depth: 3)...
+Status: running (3/10 pages)...
+Status: completed (10/10 pages)
+```
+
+Async mode (`--async`) prints job ID JSON:
+```json
+{"job_id": "abc123-..."}
+```
+
+## Error Handling
+
+### API 400: missing jsonOptions
+`--format json` requires `--json-options`. Add `--json-options '{"prompt":"..."}'`.
+
+### Job status 404
+Free tier jobs are short-lived. Check status promptly after async submission.
+
+### Rate limit (429)
+Free: 6 req/min. Paid: 600 req/min. Reduce `--limit` or wait.

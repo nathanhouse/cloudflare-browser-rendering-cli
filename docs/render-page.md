@@ -1,4 +1,4 @@
-# Render Single Page with Cloudflare Browser Rendering
+# Render Page - Cloudflare Browser Rendering
 
 Render, screenshot, scrape, or extract data from individual pages via Cloudflare's REST API.
 
@@ -75,6 +75,30 @@ bun run cloudflare-render.ts snapshot https://example.com
 **scrape:** `--selector <css>` (repeatable, required)
 
 **json:** `--prompt <string>`, `--schema <json-or-file>`, `--model <json-array>`
+
+## Expected Output
+
+Text commands (content, markdown, links, scrape, json) print to stdout. Binary commands (screenshot, pdf, snapshot) save files.
+
+```
+# markdown command output:
+# Example Domain
+This domain is for use in illustrative examples...
+
+# screenshot saves file:
+Screenshot saved to screenshot-example.com-1710234567.png (47.2 KB)
+```
+
+## Error Handling
+
+### "Error: URL or --html required"
+Provide a URL or use `--html "<h1>Test</h1>"` for raw HTML rendering.
+
+### "Error: scrape requires at least one --selector"
+Add `--selector "css-selector"` (repeatable).
+
+### "Error: json requires --prompt and/or --schema"
+Add `--prompt "Extract..."` or `--schema '{...}'`.
 
 ## When to Use render vs crawl
 
