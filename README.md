@@ -186,6 +186,19 @@ bun run cloudflare-crawl.ts https://example.com --reject-resource image --reject
 | Free | 5 | 100 | 6 req/min |
 | Paid | Unlimited | 100,000 | 600 req/min |
 
+## Claude Code Commands
+
+The `docs/` folder contains command files designed for [Claude Code](https://claude.com/claude-code). Drop them into your `.claude/commands/` directory and they'll work as slash commands, giving Claude the context it needs to use these scripts intelligently — picking the right flags, handling errors, and choosing between render vs crawl for your task.
+
+```bash
+# Install as Claude Code commands
+mkdir -p ~/.claude/commands/cloudflare
+cp docs/render-page.md ~/.claude/commands/cloudflare/
+cp docs/crawl-website.md ~/.claude/commands/cloudflare/
+```
+
+Then in Claude Code: `/render-page` or `/crawl-website`.
+
 ## More
 
 If you want more tools and content like this:
